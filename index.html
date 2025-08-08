@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTF Training Lab</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <!-- Page de Login -->
+    <div id="loginPage" class="login-container">
+      <div class="login-box">
+        <h1>🚨 CTF TRAINING LAB 🚨</h1>
+        <p>Bienvenue dans le laboratoire d'entraînement CTF</p>
+
+        <div class="vulnerability-hint">
+          <strong>🎯 Challenge SQL Injection (Intermédiaire)</strong><br />
+          Cette page de connexion est vulnérable aux injections SQL.<br />
+          Essayez des payloads classiques et basique <br />
+          Ou explorez d'autres techniques d'injection SQL.
+        </div>
+
+        <input type="text" id="username" placeholder="Nom d'utilisateur" />
+        <input type="password" id="password" placeholder="Mot de passe" />
+        <div id="loginMessage"></div>
+        <button onclick="attemptLogin()">Se connecter</button>
+        <button onclick="showHint()">💡 Indice SQL</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Principal -->
+    <div id="dashboard" class="dashboard container">
+      <h1 style="text-align: center; color: #ff6b6b; margin-bottom: 30px">
+        🏆 CTF TRAINING DASHBOARD 🏆
+      </h1>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressBar"></div>
+      </div>
+      <p style="text-align: center" id="progressText">
+        Progression: 0/7 challenges complétés
+      </p>
+
+      <nav class="navbar">
+        <span class="nav-item active" onclick="showChallenge('web')"
+          >🌐 Web Security</span
+        >
+        <span class="nav-item" onclick="showChallenge('crypto')"
+          >🔐 Cryptographie</span
+        >
+        <span class="nav-item" onclick="showChallenge('forensics')"
+          >🔍 Forensics</span
+        >
+        <span class="nav-item" onclick="showChallenge('reverse')"
+          >⚙️ Reverse Engineering</span
+        >
+        <span class="nav-item" onclick="showChallenge('pwn')">💥 Pwning</span>
+        <span class="nav-item" onclick="showChallenge('steganography')"
+          >🖼️ Stéganographie</span
+        >
+        <span class="nav-item" onclick="showChallenge('osint')">🕵️ OSINT</span>
+        <span class="nav-item" onclick="showReward()">🎉 Récompense</span>
+      </nav>
+
+      <div id="challengeContent">
+        <!-- Le contenu des challenges sera inséré ici -->
+      </div>
+    </div>
+
+    <script src="js/matrix-animation.js"></script>
+    <script src="js/challenge-system.js"></script>
+    <script src="js/challenges-data.js"></script>
+    <script src="js/login-system.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
